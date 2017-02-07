@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=yes" />
+    <!--<link rel="stylesheet" type="text/css" href="css/st.css">-->
+
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/sb-admin-2.css">
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+    <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed|Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+    <!-- Enable all requests, inline styles, and eval() -->
+
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height" />
+    <meta charset="utf-8" />
+    <meta name="author" content="MySaaya" />
+    <meta name="description" content="" />
+    <title>Reports</title>
+</head>
+
+<body>
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <div class="row">
+                    <div class="col-xs-3">
+                        <!--span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span-->
+                        <a class="navbar-brand " id="brand" href="dashboard.html"> <img src="icons.png" style="width:22px;height:50px alt="BK" class="img-responsive" ></a>
+                    </div>
+                    <div class="col-xs-6">
+                        <div class="text-center">
+                            <h5>Export Reports</h5>
+                        </div>
+                    </div>
+                    <div class="col-xs-3">
+                        <div class="navbar-right pull-right">
+                            <h4><a title="Settings" href="settings.html"><i class="fa fa-gear"></i></a></h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--wrap the page content do not style this-->
+    <div id="page-content">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4 col-xs-4">
+                    <a href="#" onclick="if(document.referrer) {window.open(document.referrer,'_self');} else {history.go(-1);} return false;" class="no-hover">Back</a>
+                </div>
+            </div>
+            <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingOne">
+                        <h4 class="panel-title">
+							<a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+							Generate Reports
+							</a>
+						</h4>
+                    </div>
+                    <div class="panel-body" id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo" style="padding: 0px;">                        
+							<br />
+							<div id="help" class="alert fade in" role="alert" style="display: none;">
+								<div id="message" style="display: block;"></div>
+							</div>
+							<form id="reportspage" class="reports" action="viewreport.html?rtype=account_type&range=Date">
+								<div class="report">
+									<table class="table text-center">
+										<tr>
+											<td>
+												<label for="Account Type">Account Type:</label>
+												<br />
+												<select name="rtype" id="rtype">
+													<option value='2'>Income</option>
+													<option value='1'>Expense</option>
+												</select>
+											</td>
+											<td>
+												<label for="Date">Select Date:
+													<br />
+													<select name="range" id="range">
+														<option value="curmonth">Current Month</option>
+														<option value="prevmonth">Previous Month</option>
+														<option value="cur_quarter">Current Quarter</option>
+														<option value="cur_year">Current Year</option>
+														<option value="custom_date">Custom Date</option>
+													</select>
+											</td>
+										</tr>
+										<tr class="date" id="datechange">
+											<td>
+												<label for="txtFromDate">From Date:</label>
+												<br />
+												<input type="date" name="startDate" id="startDate" size="10" maxlength="10" />
+											</td>
+											<td>
+												<label for="txtToDate"> To Date:</label>
+												<br/>
+												<input type="date" name="endDate" id="endDate" size="10" maxlength="10" />
+											</td>
+										</tr>
+										<tr>
+											<td colspan="2">
+												<a class="btn btn-primary" id="excel">Export to Excel</a>
+											</td>
+										</tr>
+									</table>
+								</div>
+								<!-- /.report -->
+							</form>						
+                    </div><!-- /.panel panel-body -->
+                </div>
+                <!-- /.panel panel-default -->
+            </div>
+            <!-- /.panel-group -->
+        </div><!-- /.container -->
+    </div>
+    <!-- /#page-content -->
+    <div id="clearIt"></div>
+    <div id="footer" class="text-center">
+        <div data-role="navbar" class="navbar navbar-default navbar-bottom" data-grid="d">
+            <ul class="navbar">
+                <li><a title="upload" href="uploadlist.html"><i class="fa fa-upload"></i><br />Upload</a>
+                </li>
+                <li><a title="review" href="reviewlist.html"><i class="fa fa-tasks"></i><br />Review</a>
+                </li>
+                <li><a title="archive" href="archivelist.html"><i class="fa fa-file-archive-o"></i><br />Archive</a>
+                </li>
+                <li><a title="archive" href="reports.html"><i class="fa fa-bar-chart" aria-hidden="true"></i><br />Reports</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- /#footer-->
+    <!--/<script type="text/javascript" src="jquery.form.js"></script>-->
+    <script language="JavaScript" type="text/javascript" src="js/jquery.min.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script language="JavaScript" type="text/javascript" src="js/bootstrap.min.js"></script>
+    <!-- jQuery Validation -->
+    <script type="text/javascript" src="js/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+    <script language="JavaScript" type="text/javascript" src="js/globals.js"></script>
+    </script>
+</body>
+</html>

@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=yes" /> 
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Enable all requests, inline styles, and eval() -->
+    <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval'"> 
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height" />    
+    <meta name="description" content="Bkaas Login">
+    <meta name="author" content="">
+ <meta name="description" content="" />
+ <title>Sign in</title>
+  <!-- Bootstrap Core CSS -->
+  
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/sb-admin-2.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="css/bootstrap-datepicker.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+<div class="container">
+<div class="row">
+<div class="col-md-4 col-md-offset-4">
+<div class="login-panel panel panel-default">
+<div class="panel-heading">
+<h3 class="panel-title"> Please Sign in</h3>                        
+</div>
+<div class="panel-body">
+<div id="isLoggedIn" class="alert alert-success fade in" style="display: none;">
+<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+</button>
+<span id="msg"></span>
+</div>
+<div id="verificationError" class="alert alert-danger fade in" style="display: none;">
+<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+</button>
+<span id="msg"></span>
+</div>
+<form role="form" id="loginForm" method="post">
+<fieldset>
+    <div class="form-group">
+        <input class="form-control" placeholder="Username" id="user_name" name="user_name" type="text"  autofocus value="" required/>
+    </div>
+    
+    <div class="form-group">
+        <input class="form-control" placeholder="Password" id="pwd" name="pwd" type="password" value="" required/>                                        
+    </div>                                    
+    <!--div class="checkbox" style="display: none;">                   
+        <label>
+            <input name="remember" type="checkbox" value="Remember Me">Remember Me
+        </label>
+    </div-->                              
+    <div class="form-group text-center">
+        <input type="submit" style="width: 50%; margin: 0 auto;" class="btn btn-lg btn-success btn-block" id="login" value="Login"  />
+    </div>                                  
+
+    <div class="form-group text-center">
+        <p class="small text-center">
+         <a href="register_form.html" title="Register">Register</a> 
+		 <span> or</span> <a href="activate.html" id="activate">Activate</a>
+        </p>
+
+        <p class="small text-center">
+         <p class="small">
+            <a href="forgotpassword.html" id="forgotpassword" >Forgot Password</a> <span> or</span> <a href="resetpassword.html" id="resetpassword">Reset Password</a>
+        </p>
+        </p>
+   </fieldset>
+         
+    </div>
+   </fieldset>
+  </form>                            
+ </div>
+</div>
+
+</div>
+</div>
+    
+    </body>
+
+</html>
+
+<script language="JavaScript" type="text/javascript" src="js/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+<script language="JavaScript" type="text/javascript" src="js/bootstrap.min.js"></script>    
+
+    <!-- jQuery Validation -->
+<script type="text/javascript" src="js/jquery.validate.min.js"></script>
+
+
+<script language="JavaScript" type="text/javascript" src="js/globals.js"></script>
+
+<script type="text/javascript">
+
+
+$(document).ready(function () {
+        $( window ).load(function() {  
+            $('#loading').hide();//default
+            $('#extraFor').hide();  //default
+            $('#extraRes').hide();  //default
+            
+            $('a#forgot').on('click', function(e) {
+                e.preventDefault();
+                if ( $('#extraRes').is(':visible') ) {                    
+                    $('#extraRes').hide(); 
+                    $('a#pass').css('text-decoration', 'none');
+                }                    
+                $('a#forgot').css('text-decoration', 'underline');
+                $('#extraFor').slideToggle('slow');                    
+            });
+            $('a#pass').on('click', function(e) {
+                e.preventDefault();
+                if ( $('#extraFor').is(':visible') ) {               
+                    $('#extraFor').hide(); 
+                    $('a#forgot').css('text-decoration', 'none');
+                }                
+                $('a#pass').css('text-decoration', 'underline');
+                $('#extraRes').slideToggle('slow');                
+            });
+            //if loaded on android device, move the login panel towards top
+            if(navigator.userAgent.toLowerCase().indexOf("android") > -1)
+                $('.login-panel').css('margin-top', '12%');
+                
+            var db ;
+            //Update - If there are any login credentials on the localStorage, ask User if User wants to continue
+            if(window.localStorage.getItem("user_name") && window.localStorage.getItem("pwd")) {
+                
+                window.location = 'dashboard.html';
+            }
+          //end of if
+        });
+        
+        //console.log('Validate the user');
+        $.validator.setDefaults({
+            submitHandler: function (form) {
+                //alert('submitted');             
+                //var postData = $("form").serializeArray();
+                //If form is validated to be true, trigger ajax call to login
+                $.ajax({
+                  url: 'http://bkaas.rubiconhosting.com/v1_0_0/qa/api/index.php/login',   //Local
+                  type: 'POST',
+                  data: {
+                            user_name: $('#user_name').val(), 
+                            pwd: $('#pwd').val(),
+                        },              
+                  success: function(data){
+                            res = loginUser(data, $('#user_name').val(), $('#pwd').val()); 
+                            if(res) {                                        
+                                obj = JSON.parse(data);                                
+                                window.location = 'dashboard.html';
+                            }
+                  },
+                  error: function(data){
+                    //console.log('Error: '+data);
+                    //alert('An Error occured');
+                    //alert(JSON.stringify(data));
+                    //$('#verificationError #msg').html('An Error occured');
+                    $('#verificationError #msg').html(data.message);
+                    $('#verificationError').css('display', 'block');
+                    //$('#isLoggedIn').css('display', 'none');                            
+                    $('#isLoggedIn').remove();
+                  }
+              });
+            
+                //form.submit();
+            }
+        });
+  $('form').validate({ 
+            rules: {
+                user_name: {
+                    required: true,
+                    minlength: 5
+                },
+                pwd: {
+                    required: true,
+                    minlength: 6
+                }
+            },
+            messages: {
+                user_name: { required: "Username is Required"},
+                pwd: { required: "Password is Required"}
+            }
+        });
+       
+        $(function(){
+        $("#loginForm").validate({
+                rules: {
+                    user_name: { required: true, minlength: 5},
+                    pwd: { required: true, minlength: 6}
+                },
+                messages: {
+                    user_name: { required: "Username is Required"},
+                    pwd: { required: "Password is Required"}
+                },
+                ignore:      "",
+                errorClass:  'fieldError',
+                onkeyup:     true,
+                onblur:      true,
+                errorElement:'label',
+                submitHandler: function() {                        
+                    alert("error occured");
+                }
+            });
+
+        //submit form on pressing 'enter' key
+        /*document.onkeydown = function () {
+            if (window.event.keyCode == '13') {
+                //submitForm();
+                $("#loginForm").submit();               
+            }
+        }*/
+        
+        $("#login").click(function(){
+            $("#loginForm").submit();
+            return false;
+        });
+        //$('#loginForm').submit();
+    });
+
+            });
+
+function loginUser(data, user_name, pwd) {
+    //on Successful ajax call
+    var obj = JSON.parse(data);
+    if(obj.status == "unverified") {                    
+            $('#verificationError #msg').html('Account Verification Pending. Please verify your account.');
+            $('#verificationError').css('display', 'block');
+            //$('#isLoggedIn').css('display', 'none');                            
+            $('#isLoggedIn').remove();
+    }
+    else if(obj.status == true) {
+        //alert('Valid User'); 
+                               
+            window.localStorage.setItem("user_name", user_name);
+            window.localStorage.setItem("pwd", pwd);                        
+            window.localStorage.setItem("loggedIn", 1);
+            window.localStorage.setItem("lastLogin", (new Date().getTime()));
+            window.localStorage.setItem("id_subscriber", obj.id_subscriber);
+            window.localStorage.setItem("id_user", obj.id_user);                            
+            return true;
+            }
+                       
+    else {                        
+        //$('#verificationError #msg').html('Invalid User or Incorrect Password');
+        $('#verificationError #msg').html(obj.message);
+        $('#verificationError').css('display', 'block');
+        //$('#isLoggedIn').css('display', 'block');
+        $('#isLoggedIn').remove();
+        //alert(obj.message);
+        return false;
+    } 
+}//loginUser()    
+
+
+
+</script>
+    
+</body> 
+
+</html>

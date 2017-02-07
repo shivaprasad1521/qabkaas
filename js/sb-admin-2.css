@@ -1,0 +1,806 @@
+/*!
+ * Start Bootstrap - SB Admin 2 Bootstrap Admin Theme (http://startbootstrap.com)
+ * Code licensed under the Apache License v2.0.
+ * For details, see http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
+body {
+    /*background-color: #f8f8f8;*/
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; 
+    font-size: 14px;
+}
+
+#wrapper {
+    width: 100%;
+}
+
+#page-wrapper {
+    padding: 0 15px;
+    min-height: 568px;
+    background-color: #fff;
+}
+
+@media(min-width:768px) {
+    #page-wrapper {
+        position: inherit;
+        margin: 0 0 0 250px;
+        padding: 0 30px;
+        border-left: 1px solid #e7e7e7;
+    }
+}
+
+.navbar-top-links {
+    margin-right: 0;
+}
+
+.navbar-top-links li {
+    display: inline-block;
+}
+
+.navbar-top-links li:last-child {
+    margin-right: 15px;
+}
+
+.navbar-top-links li a {
+    padding: 15px;
+    min-height: 50px;
+}
+
+.navbar-top-links .dropdown-menu li {
+    display: block;
+}
+
+.navbar-top-links .dropdown-menu li:last-child {
+    margin-right: 0;
+}
+
+.navbar-top-links .dropdown-menu li a {
+    padding: 3px 20px;
+    min-height: 0;
+}
+
+.navbar-top-links .dropdown-menu li a div {
+    white-space: normal;
+}
+
+.navbar-top-links .dropdown-messages,
+.navbar-top-links .dropdown-tasks,
+.navbar-top-links .dropdown-alerts {
+    width: 310px;
+    min-width: 0;
+}
+
+.navbar-top-links .dropdown-messages {
+    margin-left: 5px;
+}
+
+.navbar-top-links .dropdown-tasks {
+    margin-left: -59px;
+}
+
+.navbar-top-links .dropdown-alerts {
+    margin-left: -123px;
+}
+
+.navbar-top-links .dropdown-user {
+    right: 0;
+    left: auto;
+}
+
+.sidebar .sidebar-nav.navbar-collapse {
+    padding-right: 0;
+    padding-left: 0;
+}
+
+.sidebar .sidebar-search {
+    padding: 15px;
+}
+
+.sidebar ul li {
+    border-bottom: 1px solid #e7e7e7;
+}
+
+.sidebar ul li a.active {
+    background-color: #eee;
+}
+
+.sidebar .arrow {
+    float: right;
+}
+
+.sidebar .fa.arrow:before {
+    content: "\f104";
+}
+
+.sidebar .active>a>.fa.arrow:before {
+    content: "\f107";
+}
+
+.sidebar .nav-second-level li,
+.sidebar .nav-third-level li {
+    border-bottom: 0!important;
+}
+
+.sidebar .nav-second-level li a {
+    padding-left: 37px;
+}
+
+.sidebar .nav-third-level li a {
+    padding-left: 52px;
+}
+
+@media(min-width:768px) {
+    .sidebar {
+        z-index: 1;
+        position: absolute;
+        width: 250px;
+        margin-top: 51px;
+    }
+
+    .navbar-top-links .dropdown-messages,
+    .navbar-top-links .dropdown-tasks,
+    .navbar-top-links .dropdown-alerts {
+        margin-left: auto;
+    }
+}
+
+.btn-outline {
+    color: inherit;
+    background-color: transparent;
+    transition: all .5s;
+}
+
+.btn-primary.btn-outline {
+    color: #428bca;
+}
+
+.btn-success.btn-outline {
+    color: #5cb85c;
+}
+
+.btn-info.btn-outline {
+    color: #5bc0de;
+}
+
+.btn-warning.btn-outline {
+    color: #f0ad4e;
+}
+
+.btn-danger.btn-outline {
+    color: #d9534f;
+}
+
+.btn-primary.btn-outline:hover,
+.btn-success.btn-outline:hover,
+.btn-info.btn-outline:hover,
+.btn-warning.btn-outline:hover,
+.btn-danger.btn-outline:hover {
+    color: #fff;
+}
+
+.chat {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.chat li {
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-bottom: 1px dotted #999;
+}
+
+.chat li.left .chat-body {
+    margin-left: 60px;
+}
+
+.chat li.right .chat-body {
+    margin-right: 60px;
+}
+
+.chat li .chat-body p {
+    margin: 0;
+}
+
+.panel .slidedown .glyphicon,
+.chat .glyphicon {
+    margin-right: 5px;
+}
+
+.chat-panel .panel-body {
+    height: 350px;
+    overflow-y: scroll;
+}
+
+.login-panel {
+    margin-top: 25%;
+}
+
+.flot-chart {
+    display: block;
+    height: 400px;
+}
+
+.flot-chart-content {
+    width: 100%;
+    height: 100%;
+}
+
+.dataTables_wrapper {
+    position: relative;
+    clear: both;
+}
+
+table.dataTable thead .sorting,
+table.dataTable thead .sorting_asc,
+table.dataTable thead .sorting_desc,
+table.dataTable thead .sorting_asc_disabled,
+table.dataTable thead .sorting_desc_disabled {
+    background: 0 0;
+}
+
+table.dataTable thead .sorting_asc:after {
+    content: "\f0de";
+    float: right;
+    font-family: fontawesome;
+}
+
+table.dataTable thead .sorting_desc:after {
+    content: "\f0dd";
+    float: right;
+    font-family: fontawesome;
+}
+
+table.dataTable thead .sorting:after {
+    content: "\f0dc";
+    float: right;
+    font-family: fontawesome;
+    color: rgba(50,50,50,.5);
+}
+
+.btn-circle {
+    width: 30px;
+    height: 30px;
+    padding: 6px 0;
+    border-radius: 15px;
+    text-align: center;
+    font-size: 12px;
+    line-height: 1.428571429;
+}
+
+.btn-circle.btn-lg {
+    width: 50px;
+    height: 50px;
+    padding: 10px 16px;
+    border-radius: 25px;
+    font-size: 18px;
+    line-height: 1.33;
+}
+
+.btn-circle.btn-xl {
+    width: 70px;
+    height: 70px;
+    padding: 10px 16px;
+    border-radius: 35px;
+    font-size: 24px;
+    line-height: 1.33;
+}
+
+.show-grid [class^=col-] {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border: 1px solid #ddd;
+    background-color: #eee!important;
+}
+
+.show-grid {
+    margin: 15px 0;
+}
+
+.huge {
+    font-size: 40px;
+}
+
+.panel-green {
+    border-color: #5cb85c;
+}
+
+.panel-green .panel-heading {
+    border-color: #5cb85c;
+    color: #fff;
+    background-color: #5cb85c;
+}
+
+.panel-green a {
+    color: #5cb85c;
+}
+
+.panel-green a:hover {
+    color: #3d8b3d;
+}
+
+.panel-red {
+    border-color: #d9534f;
+}
+
+.panel-red .panel-heading {
+    border-color: #d9534f;
+    color: #fff;
+    background-color: #d9534f;
+}
+
+.panel-red a {
+    color: #d9534f;
+}
+
+.panel-red a:hover {
+    color: #b52b27;
+}
+
+.panel-yellow {
+    border-color: #f0ad4e;
+}
+
+.panel-yellow .panel-heading {
+    border-color: #f0ad4e;
+    color: #fff;
+    background-color: #f0ad4e;
+}
+
+.panel-yellow a {
+    color: #f0ad4e;
+}
+
+.panel-yellow a:hover {
+    color: #df8a13;
+}
+/**Custom CSS**/
+
+@media(min-width:768px) {
+.sidebar {
+z-index: 1;
+position: absolute;
+width: 250px;
+margin-top: 51px;
+}
+
+.navbar-top-links .dropdown-messages,
+.navbar-top-links .dropdown-tasks,
+.navbar-top-links .dropdown-alerts {
+margin-left: auto;
+}
+}
+
+/*side bar button to be auto-scroll
+http://startbootstrap.com/template-overviews/sb-admin-2/ - not working. to be verified.*/
+sidebar-nav {
+overflow-y: auto;
+position: fixed;
+bottom: 0;
+top: 51px;
+width: 250px;
+max-height: 100% !important;
+}
+
+/* adjust body when menu is open */
+body.slide-active {
+    overflow-x: hidden
+}
+/*first child of #page-content so it doesn't shift around*/
+.no-margin-top {
+    margin-top: 0px!important
+}
+/*wrap the entire page content but not nav inside this div if not a fixed top, don't add any top padding */
+#page-content {
+    position: relative;
+    padding-top: 70px;
+    left: 0;
+}
+#page-content.slide-active {
+    padding-top: 0
+}
+/* put toggle bars on the left :: not using button */
+#slide-nav .navbar-toggle {
+    cursor: pointer;
+    position: relative;
+    line-height: 0;
+    float: left;
+    margin: 0;
+    width: 30px;
+    height: 40px;
+    padding: 10px 0 0 0;
+    border: 0;
+    background: transparent;
+}
+/* icon bar prettyup - optional */
+#slide-nav .navbar-toggle > .icon-bar {
+    width: 100%;
+    display: block;
+    height: 3px;
+    margin: 5px 0 0 0;
+}
+#slide-nav .navbar-toggle.slide-active .icon-bar {
+    background: orange
+}
+.navbar-header {
+    position: relative
+}
+/* un fix the navbar when active so that all the menu items are accessible */
+.navbar.navbar-fixed-top.slide-active {
+    position: relative
+}
+.navbar-nav > li > a {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    line-height: 20px;
+}
+
+/* screw writing importants and shit, just stick it in max width since these classes are not shared between sizes */
+/* adjust body when menu is open */
+body.slide-active {
+    overflow-x: hidden
+}
+/*first child of #page-content so it doesn't shift around*/
+.no-margin-top {
+    margin-top: 0px!important
+}
+/*wrap the entire page content but not nav inside this div if not a fixed top, don't add any top padding */
+#page-content {
+    position: relative;
+    padding-top: 70px;
+    left: 0;
+}
+#page-content.slide-active {
+    padding-top: 0
+}
+/* put toggle bars on the left :: not using button */
+#slide-nav .navbar-toggle {
+    cursor: pointer;
+    position: relative;
+    line-height: 0;
+    float: left;
+    margin: 0;
+    width: 30px;
+    height: 40px;
+    padding: 10px 0 0 0;
+    border: 0;
+    background: transparent;
+}
+/* icon bar prettyup - optional */
+#slide-nav .navbar-toggle > .icon-bar {
+    width: 100%;
+    display: block;
+    height: 3px;
+    margin: 5px 0 0 0;
+}
+#slide-nav .navbar-toggle.slide-active .icon-bar {
+    background: orange
+}
+.navbar-header {
+    position: relative
+}
+/* un fix the navbar when active so that all the menu items are accessible */
+.navbar.navbar-fixed-top.slide-active {
+    position: relative
+}
+/* screw writing importants and shit, just stick it in max width since these classes are not shared between sizes */
+@media (max-width:767px) { 
+  #slide-nav .container {
+      margin: 0;
+      padding: 0!important;
+  }
+  #slide-nav .navbar-header {
+      margin: 0 auto;
+      padding: 0 15px;
+  }
+  #slide-nav .navbar.slide-active {
+      position: absolute;
+      width: 15%;
+      top: -1px;
+      z-index: 1000;
+  }
+  #slide-nav #slidemenu {
+      background: #f7f7f7;
+      left: -100%;
+      width: 15%;
+      min-width: 0;
+      position: absolute;
+      padding-left: 0;
+      z-index: 2;
+      top: -8px;
+      margin: 0;
+  }
+  #slide-nav #slidemenu .navbar-nav {
+      min-width: 0;
+      width: 100%;
+      margin: 0;
+  }
+  #slide-nav #slidemenu .navbar-nav .dropdown-menu li a {
+      min-width: 0;
+      width: 15%;
+      white-space: normal;
+  }
+  #slide-nav {
+      border-top: 0
+  }
+  #slide-nav.navbar-inverse #slidemenu {
+      background: #333
+  }
+  /* this is behind the navigation but the navigation is not inside it so that the navigation is accessible and scrolls*/
+  #slide-nav #navbar-height-col {
+      position: fixed;
+      top: 0;
+      height: 100%;
+      width: 15%;
+      left: -85%;
+      background: #eee;
+  }
+  #slide-nav.navbar #navbar-height-col {
+      background: #333;
+      z-index: 1;
+      border: 0;
+  }
+  #slide-nav .navbar-form {
+      width: 100%;
+      margin: 8px 0;
+      text-align: center;
+      overflow: hidden;
+      /*fast clearfixer*/
+  }
+  #slide-nav .navbar-form .form-control {
+      text-align: center
+  }
+  #slide-nav .navbar-form .btn {
+      width: 100%
+  }
+   /*custom*/
+  .table-responsive {
+    border: 0px none;
+  }
+}
+@media (min-width:768px) { 
+  #page-content {
+      left: 0!important
+  }
+  .navbar.navbar-fixed-top.slide-active {
+      position: fixed
+  }
+  .navbar-header {
+      left: 0!important
+  }
+}
+
+a {
+  color: #7676BC;
+}
+.heading {
+ color: #7676BC !important; 
+}
+.no-padding {
+    padding: 0;
+}
+.heading {
+    color: #007AFF;
+}
+.borderless, .borderless tbody tr th, .borderless tbody tr td, .borderless tbody tr th, .borderless thead tr th {
+    border: 0px;
+}
+*.no_margin{
+margin: 0px !important;
+}
+.no-hover:hover{
+    text-decoration: none;
+}
+/*#page-content .panel-body {
+    font-size: 14px;
+}*/
+@-moz-document url-prefix() {
+  fieldset { display: table-cell; }
+}
+.form-widgets-sm label {
+    height: 15px;
+    width: 100%;
+}
+.form-widgets-sm select {
+    height: 15px;
+    width: 100%;
+}
+.form-widgets-sm input {
+    height: 15px;
+    width: 100%;
+}
+/*Custom CSS*/
+ul.no-style li {
+  list-style: none;
+}
+/*Autcomplete textbox edit_appointment.html*/
+.suggesstion-box li {
+  list-style: none;      
+  padding: 5px;
+  z-index: 9999;  
+  background-color: #eee;
+  color: teal;
+  border-bottom: 1px thin #eee;
+}
+.suggesstion-box li:hover {
+  background-color: #eec;
+}
+/*Align Bootstrap tabs and pills to center of the page*/
+.nav-tabs > li, .nav-pills > li {
+    float:none;
+    display:inline-block;
+    *display:inline; /* ie7 fix */
+     zoom:1; /* hasLayout ie7 trigger */
+     border: 1px solid #eee;
+}
+/* Center tabs */
+.nav-tabs, .nav-pills {
+    text-align:center;
+}
+/* Set tab text and background color*/
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
+    color: white;
+    cursor: default;
+    background-color: #3385ff;
+    border: 1px solid #ddd;
+    border-bottom-color: transparent;
+}
+
+.nav-tabs>li {    
+    margin-bottom: 8px;
+}
+.container {
+    padding-right: 10px;
+    padding-left: 10px;
+    margin-right: auto;
+    margin-left: auto;
+}
+span.profile_title {  
+  /*text-transform: capitalize;*/
+  font-size: 75%;
+  color: darkgreen;
+  /*font-weight: bold;*/
+}
+/*Font-size for content in the floating menu */
+#slide-nav {
+  font-size: 14px;
+}
+.form-control {
+  border: 0px;
+  background-color: transparent;
+}
+input#search {
+  background-color: white;
+  width: 98%;
+  border-radius: 5px;
+}
+/*flat icon color */
+.entity_icon {
+	color: grey;
+}
+#pageSearch {
+  padding: 5px 0px; background-color: #eee; margin-bottom: 7px;
+}
+/*Footer CSS*/
+#footer { background: transparent; position: fixed; bottom: 0; width: 100%; text-align: center; z-index: 999; }    
+#footer ul.navbar { color: white; width: 100%; margin-bottom: 0 auto; display: table; list-style: none; padding-left: 0px;}
+#footer ul.navbar li { padding: .25em; display: block; text-align: center; display: table-cell;}
+.navbar {margin-bottom: 0px;}
+#footer ul.navbar li a {font-size: 10px;}
+#footer ul li a i {font: normal normal normal 18px/1 fontawesome;}
+#footer ul.navbar>li:active { color: #ccc; background-color: #e7e7e7;}
+
+/*Validation Errors*/
+.fieldError {/*color: red; */font-weight: 600;}
+
+/*Remove underline for anchor elements*/
+a:focus, a:hover {
+  text-decoration: none;
+}
+
+/*Display Appointment Recurring value in capitalized format*/
+#recurring {
+  text-transform: capitalize;;
+}
+
+/* Borderless select list */
+select {
+  border: none;
+  background: white;
+  color: black;
+}
+
+/* Remove border for all Tab headings - home.html & connections.html */
+.tabbable .nav-tabs>li {
+  border: none;
+}
+
+/* about.html */
+div#branding {
+    height: 300px;
+    /*width: 300px;*/
+    background: #f8f8f8; /*url(http://d1c739w2xm33i4.cloudfront.net/2.2/top_image.jpg)*/
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+/**
+* Styles to fix the new iOS 7 transparent status bar
+* /
+#ios7statusbar {
+width:100%;
+height:20px;
+background-color:white;
+position:fixed;
+z-index:10000;
+}
+.ios7 .ui-page, .ios7 .ui-header, .ios7 .ui-pane {
+margin-top: 20px;
+}*/
+
+/*Loading*/
+ #loading {
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  left: 0px;
+  position: fixed;
+  display: block;
+  opacity: 0.7;
+  background-color: #fff;
+  z-index: 99;
+  text-align: center;
+}
+
+#loading-image {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 100;
+}
+*.no_padding {
+  padding: 0px !important;
+}
+/*Hide 'No file chosen' for file upload form fields */
+input[type='file'] {
+  color: transparent;
+}
+.inputfile {
+  opacity: 0;
+  overflow: hidden;
+  z-index: -1;
+}
+.inputfile + label {
+    padding: 6px 12px;
+    border-radius: 3px;
+    color: white;
+    background-color: #337ab7;    
+}
+
+.inputfile:focus + label, .inputfile + label:hover {
+    background-color: #337ab7;
+}
+.inputfile + label {
+  cursor: pointer; /* "hand" cursor */
+}
+
+input[type='file'] {
+  display: none;
+}
+
+/*profile selection and bell icons are not displayed on right in large devices. Below css with fix it.*/
+.navbar-header {
+  width: 100%;
+}
+/*Override bootstrap .alert padding and margin*/
+.alert {
+  /*padding: 10px;*/
+  margin-bottom: 10px;
+}
+
+table > tbody > tr > td {
+     vertical-align: middle !important;
+}
+
+table#profiles, table#sharedProfiles > tr {
+  height: 40px;
+}
